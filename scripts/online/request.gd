@@ -1,4 +1,4 @@
-extends "res://scripts/bag_aware.gd"
+extends Control
 
 var http_client
 
@@ -8,7 +8,9 @@ var api_port = null
 var api_use_ssl = false
 
 func _initialize():
-	self.http_client = NetworkedMultiplayerENet.new()
+	self.client = NetworkedMultiplayerENet.new()
+	self.client.create_client("localhost", 7788)
+	get_tree().set_network_peer(self.client)
 
 	self.enabled = ProjectSettings.get_setting('tof/online')
 	self.api_location = ProjectSettings.get_setting('tof/api_location')
@@ -21,8 +23,10 @@ func getReq(api, resource, expect_json = true):
 func post(api, resource, data = "", expect_json = true):
 	return self.make_request(api, resource, HTTPClient.METHOD_POST, data, expect_json)
 
-
 func make_request(api, resource, method, data, expect_json = true):
+	rpc("make_request_worker", api, resource, method, data, expect_json)
+
+func make_request_worker(api, resource, method, data, expect_json = true):
 	var result = {
 		'status' : null,
 		'response_code' : 0,
