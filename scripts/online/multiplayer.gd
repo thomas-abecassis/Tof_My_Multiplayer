@@ -130,13 +130,6 @@ func upload_turn_state(code, turn_data, bound_object, bound_method_success, boun
 	self.bag.controllers.online_menu_controller.refreshed = false
 
 
-
-
-
-
-
-
-
 func load_game_from_state():
 	var state_copy = self.bag.match_state.current_loaded_multiplayer_state
 	var final_state = self.bag.match_state.get_final_state()
@@ -210,11 +203,6 @@ func _apply_player_sides_from_state():
 	self.bag.root.settings['turns_cap'] = 0
 
 
-
-
-
-
-
 func update_turn_state():
 	var updated_state = self.get_updated_turn_state()
 	var match_code = self.bag.match_state.current_loaded_multiplayer_state['join_code']
@@ -231,7 +219,6 @@ func end_game():
 
 func end_game_success(response):
 	return # stub method
-
 
 func finished_updating_state(response):
 	self.start_polling_state(response['data']['join_code'])
@@ -250,7 +237,6 @@ func get_updated_turn_state():
 	}
 
 	return updated_state
-
 
 
 func start_polling_state(match_code):
@@ -365,7 +351,6 @@ func replay_step(args):
 	else:
 		self.bag.timers.set_timeout(self.REPLAY_INTERVAL, self, 'end_replay')
 
-
 func end_replay():
 	self.update_turn_with_polled_data()
 	self.bag.root.action_controller.local_end_turn()
@@ -385,7 +370,6 @@ func move_camera_to_action(move):
 	self.bag.camera.move_to_map(positionVAR)
 	self.bag.root.action_controller.set_active_field(positionVAR)
 
-
 func perform_action(move):
 	var positionVAR
 	print(move)
@@ -403,4 +387,3 @@ func perform_action(move):
 		positionVAR = move['whom']
 		positionVAR = Vector2(positionVAR[0], positionVAR[1])
 		self.bag.root.action_controller.handle_action(positionVAR)
-

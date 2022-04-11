@@ -246,7 +246,7 @@ func set_settings_title(trans_key):
 	self.settings_title.set_trans_key(trans_key)
 
 func show_online_menu():
-	self.root.bag.controllers.online_menu_controller.show()
+	get_node("/root/game/ttt").show()
 	self.hide_control_nodes()
 	if self.root.settings['online_player_id'] != null:
 		self.root.bag.controllers.online_menu_controller.multiplayer.refresh_button.grab_focus()

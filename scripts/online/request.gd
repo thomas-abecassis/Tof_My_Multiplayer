@@ -8,7 +8,7 @@ var api_port = null
 var api_use_ssl = false
 
 func _initialize():
-	self.http_client = HTTPClient.new()
+	self.http_client = NetworkedMultiplayerENet.new()
 
 	self.enabled = ProjectSettings.get_setting('tof/online')
 	self.api_location = ProjectSettings.get_setting('tof/api_location')

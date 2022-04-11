@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
+[ext_resource path="res://Control.gd" type="Script" id=1]
 [ext_resource path="res://scripts/game_logic.gd" type="Script" id=2]
 [ext_resource path="res://gui/corners.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scripts/demo_timer.gd" type="Script" id=4]
@@ -9,6 +10,11 @@
 script = ExtResource( 2 )
 
 [node name="corners" parent="." instance=ExtResource( 3 )]
+margin_left = 1.0
+margin_top = 1.0
+margin_right = 1.0
+margin_bottom = 1.0
+rect_pivot_offset = Vector2( 296, 384 )
 
 [node name="SamplePlayer" type="Node" parent="."]
 
@@ -31,4 +37,56 @@ drag_margin_v_enabled = true
 script = ExtResource( 5 )
 
 [node name="pixel_scale" type="Node2D" parent="viewport"]
+
+[node name="ttt" type="Control" parent="."]
+visible = false
+anchor_bottom = 0.012
+margin_left = 21.0
+margin_top = 190.0
+margin_right = 61.0
+margin_bottom = 221.36
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="ttt"]
+modulate = Color( 0, 0.858824, 1, 1 )
+margin_left = 420.0
+margin_top = 300.0
+margin_right = 840.0
+margin_bottom = 407.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SetUp" type="Control" parent="ttt"]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="JoinButton" type="Button" parent="ttt/SetUp"]
+margin_left = 478.0
+margin_top = 343.0
+margin_right = 535.0
+margin_bottom = 363.0
+text = "Join"
+
+[node name="HostButton" type="Button" parent="ttt/SetUp"]
+margin_left = 717.0
+margin_top = 343.0
+margin_right = 806.0
+margin_bottom = 363.0
+text = "Host"
+
+[node name="IpEnter" type="LineEdit" parent="ttt/SetUp"]
+margin_left = 549.0
+margin_top = 340.0
+margin_right = 607.0
+margin_bottom = 364.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="timeout" from="IntroTimer" to="." method="load_menu"]
