@@ -1,0 +1,325 @@
+[gd_scene load_steps=21 format=2]
+
+[ext_resource path="res://gui/vigette.tscn" type="PackedScene" id=1]
+[ext_resource path="res://gui/hud/cinematic_camera.tscn" type="PackedScene" id=2]
+[ext_resource path="res://gui/message.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/gui/dialogs/menu9@2x.png" type="Texture" id=4]
+[ext_resource path="res://scripts/translate_me_label.gd" type="Script" id=5]
+[ext_resource path="res://assets/gui/dialogs/menu9_blue@2x.png" type="Texture" id=6]
+[ext_resource path="res://assets/gui/dialogs/menu9_dark@2x.png" type="Texture" id=7]
+[ext_resource path="res://assets/gui/buttons/analog_size3_0.png" type="Texture" id=8]
+[ext_resource path="res://assets/gui/buttons/analog_size3_1.png" type="Texture" id=9]
+[ext_resource path="res://assets/gui/buttons/analog_size3_2.png" type="Texture" id=10]
+[ext_resource path="res://assets/gui/buttons/analog_size3_3.png" type="Texture" id=11]
+[ext_resource path="res://assets/gui/buttons/analog_size3_6.png" type="Texture" id=12]
+[ext_resource path="res://assets/gui/buttons/analog_size2_0.png" type="Texture" id=13]
+[ext_resource path="res://assets/gui/buttons/analog_size2_1.png" type="Texture" id=14]
+[ext_resource path="res://assets/gui/buttons/analog_size2_2.png" type="Texture" id=15]
+[ext_resource path="res://assets/gui/buttons/analog_size2_3.png" type="Texture" id=16]
+[ext_resource path="res://assets/gui/buttons/analog_size2_4.png" type="Texture" id=17]
+[ext_resource path="res://assets/gui/dialogs/big_icons.png" type="Texture" id=18]
+[ext_resource path="res://assets/gui/buttons/gamepad-buttons.png" type="Texture" id=19]
+[ext_resource path="res://gui/stats.tscn" type="PackedScene" id=20]
+
+[node name="GUI" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"__editor_plugin_screen__": "2D",
+"_edit_lock_": true
+}
+
+[node name="vigette" parent="." instance=ExtResource( 1 )]
+visible = false
+
+[node name="cinematic_camera" parent="." instance=ExtResource( 2 )]
+visible = false
+
+[node name="message_card" type="CenterContainer" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="center" type="Control" parent="message_card"]
+margin_left = 640.0
+margin_top = 360.0
+margin_right = 640.0
+margin_bottom = 360.0
+
+[node name="message" parent="message_card/center" instance=ExtResource( 3 )]
+
+[node name="top_left_panel" type="Control" parent="."]
+margin_left = 128.0
+margin_top = 80.0
+margin_right = 128.0
+margin_bottom = 80.0
+
+[node name="top_center" type="CenterContainer" parent="."]
+anchor_right = 1.0
+margin_bottom = 60.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="center" type="Control" parent="top_center"]
+margin_left = 640.0
+margin_top = 30.0
+margin_right = 640.0
+margin_bottom = 30.0
+
+[node name="game_card" type="Control" parent="top_center/center"]
+margin_top = -30.0
+margin_bottom = -30.0
+
+[node name="current_team" type="Control" parent="top_center/center/game_card"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="blue" type="Control" parent="top_center/center/game_card/current_team"]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="current_team" type="NinePatchRect" parent="top_center/center/game_card/current_team/blue"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -121.0
+margin_top = 34.0
+margin_right = 82.0
+margin_bottom = 55.0
+mouse_filter = 1
+texture = ExtResource( 4 )
+patch_margin_left = 24
+patch_margin_top = 24
+patch_margin_right = 24
+patch_margin_bottom = 24
+
+[node name="current_team_name" type="Label" parent="top_center/center/game_card/current_team/blue"]
+margin_left = -115.0
+margin_top = 72.0
+margin_right = 116.0
+margin_bottom = 90.0
+mouse_filter = 1
+size_flags_vertical = 0
+text = "BLUE TEAM TURN"
+align = 1
+valign = 1
+script = ExtResource( 5 )
+trans_key = "LABEL_BLUE_TEAM_TURN"
+
+[node name="red" type="Control" parent="top_center/center/game_card/current_team"]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="current_team" type="NinePatchRect" parent="top_center/center/game_card/current_team/red"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -121.0
+margin_top = 34.0
+margin_right = 82.0
+margin_bottom = 55.0
+mouse_filter = 1
+texture = ExtResource( 6 )
+patch_margin_left = 24
+patch_margin_top = 24
+patch_margin_right = 24
+patch_margin_bottom = 24
+
+[node name="current_team_name" type="Label" parent="top_center/center/game_card/current_team/red"]
+margin_left = -115.0
+margin_top = 72.0
+margin_right = 116.0
+margin_bottom = 90.0
+mouse_filter = 1
+size_flags_vertical = 0
+text = "RED TEAM TURN"
+align = 1
+valign = 1
+script = ExtResource( 5 )
+trans_key = "LABEL_RED_TEAM_TURN"
+
+[node name="background" type="NinePatchRect" parent="top_center/center/game_card"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -136.0
+margin_top = 8.0
+margin_right = 136.0
+margin_bottom = 72.0
+mouse_filter = 1
+texture = ExtResource( 7 )
+patch_margin_left = 24
+patch_margin_top = 24
+patch_margin_right = 24
+patch_margin_bottom = 24
+
+[node name="menu" type="TextureButton" parent="top_center/center/game_card"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -128.0
+margin_top = 16.0
+margin_right = 16.0
+margin_bottom = 64.0
+texture_normal = ExtResource( 8 )
+texture_pressed = ExtResource( 9 )
+texture_hover = ExtResource( 10 )
+texture_disabled = ExtResource( 11 )
+texture_focused = ExtResource( 12 )
+expand = true
+
+[node name="Label" type="Label" parent="top_center/center/game_card/menu"]
+margin_left = -2.0
+margin_top = 17.0
+margin_right = 148.0
+margin_bottom = 35.0
+mouse_filter = 1
+size_flags_vertical = 0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "LABEL_MAIN_MENU"
+align = 1
+valign = 1
+
+[node name="settings" type="TextureButton" parent="top_center/center/game_card"]
+margin_left = 32.0
+margin_top = 16.0
+margin_right = 128.0
+margin_bottom = 64.0
+texture_normal = ExtResource( 13 )
+texture_pressed = ExtResource( 14 )
+texture_hover = ExtResource( 15 )
+texture_disabled = ExtResource( 16 )
+texture_focused = ExtResource( 17 )
+expand = true
+
+[node name="Sprite" type="Sprite" parent="top_center/center/game_card/settings"]
+position = Vector2( 50, 23 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 18 )
+vframes = 2
+hframes = 2
+frame = 1
+
+[node name="gamepad_buttons" type="Control" parent="top_center/center/game_card"]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="background1" type="NinePatchRect" parent="top_center/center/game_card/gamepad_buttons"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -352.0
+margin_top = 24.0
+margin_right = -184.0
+margin_bottom = 16.0
+mouse_filter = 1
+texture = ExtResource( 4 )
+patch_margin_left = 24
+patch_margin_top = 12
+patch_margin_right = 24
+patch_margin_bottom = 12
+
+[node name="background2" type="NinePatchRect" parent="top_center/center/game_card/gamepad_buttons"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 144.0
+margin_top = 24.0
+margin_right = 312.0
+margin_bottom = 16.0
+mouse_filter = 1
+texture = ExtResource( 4 )
+patch_margin_left = 24
+patch_margin_top = 12
+patch_margin_right = 24
+patch_margin_bottom = 12
+
+[node name="gamepad_button" type="Sprite" parent="top_center/center/game_card/gamepad_buttons"]
+position = Vector2( -126, 66 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 19 )
+vframes = 2
+hframes = 4
+frame = 3
+
+[node name="gamepad_button2" type="Sprite" parent="top_center/center/game_card/gamepad_buttons"]
+position = Vector2( 346, 40 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 19 )
+vframes = 2
+hframes = 4
+frame = 2
+
+[node name="Label" type="Label" parent="top_center/center/game_card/gamepad_buttons"]
+margin_left = 152.0
+margin_top = 32.0
+margin_right = 318.0
+margin_bottom = 47.0
+mouse_filter = 1
+size_flags_vertical = 0
+text = "LABEL_SELECT_UNIT"
+align = 2
+
+[node name="gamepad_button3" type="Sprite" parent="top_center/center/game_card/gamepad_buttons"]
+visible = false
+position = Vector2( -342, 40 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 19 )
+vframes = 2
+hframes = 4
+frame = 1
+
+[node name="Label1" type="Label" parent="top_center/center/game_card/gamepad_buttons"]
+visible = false
+margin_left = -320.0
+margin_top = 32.0
+margin_right = -154.0
+margin_bottom = 47.0
+mouse_filter = 1
+size_flags_vertical = 0
+text = "LABEL_NEXT_TURN"
+
+[node name="top_right_panel" type="Control" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -128.0
+margin_top = 80.0
+margin_right = -128.0
+margin_bottom = 80.0
+
+[node name="end_game" parent="." instance=ExtResource( 20 )]
+visible = false
+
+[node name="bottom_left" type="Control" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 128.0
+margin_top = -64.0
+margin_right = 128.0
+margin_bottom = -64.0
+
+[node name="bottom_center" type="CenterContainer" parent="."]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -64.0
+margin_bottom = -64.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="center" type="Control" parent="bottom_center"]
+margin_left = 640.0
+margin_right = 640.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="bottom_right" type="Control" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -128.0
+margin_top = -64.0
+margin_right = -128.0
+margin_bottom = -64.0

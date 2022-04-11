@@ -1,0 +1,16 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+
+[deps]
+
+files=[ "res://translations/campaigns/campaign_fr.fr.translation" ]
+
+source_file="res://translations/campaigns/campaign_fr.csv"
+dest_files=[ "res://translations/campaigns/campaign_fr.fr.translation" ]
+
+[params]
+
+compress=true
+delimiter=0

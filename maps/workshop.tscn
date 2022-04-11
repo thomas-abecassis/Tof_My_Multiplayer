@@ -1,0 +1,94 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://scripts/map_controller.gd" type="Script" id=1]
+[ext_resource path="res://maps/underground_tileset.tres" type="TileSet" id=2]
+[ext_resource path="res://maps/blueprint_terrain_tileset.tres" type="TileSet" id=3]
+[ext_resource path="res://maps/action_tiles_tileset.tres" type="TileSet" id=4]
+[ext_resource path="res://maps/blueprint_units_tileset.tres" type="TileSet" id=5]
+[ext_resource path="res://maps/fog_of_war.tres" type="TileSet" id=6]
+
+[node name="map" type="Control"]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 1 )
+__meta__ = {
+"__editor_plugin_screen__": "2D",
+"_edit_use_anchors_": false
+}
+show_blueprint = true
+
+[node name="underground" type="TileMap" parent="."]
+z_index = -200
+mode = 1
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 32, 64 )
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_tile_origin = 1
+cell_y_sort = true
+format = 1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="terrain" type="TileMap" parent="."]
+z_index = -150
+z_as_relative = false
+mode = 1
+tile_set = ExtResource( 3 )
+cell_size = Vector2( 64, 32 )
+cell_custom_transform = Transform2D( 0, 0, 0, 1, 0, 0 )
+cell_tile_origin = 2
+centered_textures = true
+format = 1
+tile_data = PoolIntArray( 524295, 1, 0, 524296, 1, 0, 589831, 1, 0, 589832, 1, 0 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="back" type="YSort" parent="terrain"]
+z_index = 10
+
+[node name="destruction" type="YSort" parent="terrain"]
+z_index = 20
+
+[node name="actions" type="TileMap" parent="terrain"]
+position = Vector2( 0, -16 )
+z_index = 30
+mode = 1
+tile_set = ExtResource( 4 )
+cell_size = Vector2( 64, 32 )
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_tile_origin = 1
+format = 1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="front" type="YSort" parent="terrain"]
+z_index = 40
+
+[node name="units" type="TileMap" parent="terrain"]
+visible = false
+position = Vector2( 16, 0 )
+z_index = 50
+mode = 1
+tile_set = ExtResource( 5 )
+cell_size = Vector2( 64, 32 )
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_tile_origin = 1
+cell_y_sort = true
+format = 1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="fog_of_war" type="TileMap" parent="."]
+position = Vector2( 0, -16 )
+z_index = -10
+mode = 1
+tile_set = ExtResource( 6 )
+cell_size = Vector2( 64, 32 )
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_tile_origin = 1
+cell_y_sort = true
+format = 1

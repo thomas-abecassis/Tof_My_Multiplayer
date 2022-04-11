@@ -1,0 +1,16 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+
+[deps]
+
+files=[ "res://translations/campaigns/campaign.en.translation", "res://translations/campaigns/campaign.de.translation", "res://translations/campaigns/campaign.es.translation", "res://translations/campaigns/campaign.fr.translation", "res://translations/campaigns/campaign.ja.translation", "res://translations/campaigns/campaign.pl.translation", "res://translations/campaigns/campaign.ru.translation" ]
+
+source_file="res://translations/campaigns/campaign.csv"
+dest_files=[ "res://translations/campaigns/campaign.en.translation", "res://translations/campaigns/campaign.de.translation", "res://translations/campaigns/campaign.es.translation", "res://translations/campaigns/campaign.fr.translation", "res://translations/campaigns/campaign.ja.translation", "res://translations/campaigns/campaign.pl.translation", "res://translations/campaigns/campaign.ru.translation" ]
+
+[params]
+
+compress=true
+delimiter=0

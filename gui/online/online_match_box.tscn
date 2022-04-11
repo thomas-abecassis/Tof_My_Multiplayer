@@ -1,0 +1,158 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/gui/dialogs/menu9_dark@2x.png" type="Texture" id=1]
+[ext_resource path="res://gui/button_normal_theme.tres" type="Theme" id=2]
+[ext_resource path="res://scripts/translate_me_button.gd" type="Script" id=3]
+[ext_resource path="res://gui/font_22.tres" type="Theme" id=4]
+[ext_resource path="res://assets/units/units_spritesheet.png" type="Texture" id=5]
+
+[node name="match" type="Control"]
+margin_top = 1.0
+margin_right = 300.0
+margin_bottom = 121.0
+rect_min_size = Vector2( 300, 120 )
+
+[node name="background" type="NinePatchRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -150.0
+margin_top = -60.0
+margin_right = 150.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 300, 120 )
+mouse_filter = 1
+texture = ExtResource( 1 )
+patch_margin_left = 24
+patch_margin_top = 24
+patch_margin_right = 24
+patch_margin_bottom = 24
+
+[node name="free" type="Control" parent="."]
+margin_right = 300.0
+margin_bottom = 120.0
+rect_min_size = Vector2( 300, 120 )
+
+[node name="create" type="Button" parent="free"]
+margin_left = 35.0
+margin_top = 55.0
+margin_right = 131.0
+margin_bottom = 87.0
+theme = ExtResource( 2 )
+text = "CREATE"
+script = ExtResource( 3 )
+trans_key = "LABEL_CREATE"
+
+[node name="join" type="Button" parent="free"]
+margin_left = 167.0
+margin_top = 54.0
+margin_right = 263.0
+margin_bottom = 86.0
+theme = ExtResource( 2 )
+text = "JOIN"
+script = ExtResource( 3 )
+trans_key = "LABEL_JOIN"
+
+[node name="Label" type="Label" parent="free"]
+margin_left = 24.0
+margin_top = 21.0
+margin_right = 273.0
+margin_bottom = 43.0
+mouse_filter = 1
+size_flags_vertical = 0
+theme = ExtResource( 4 )
+text = "new game"
+align = 1
+uppercase = true
+
+[node name="used" type="Control" parent="."]
+visible = false
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="map_code" type="Label" parent="used"]
+margin_left = 120.0
+margin_top = 37.0
+margin_right = 250.0
+margin_bottom = 53.0
+mouse_filter = 1
+size_flags_vertical = 0
+text = "MAP: LLUU3XAP"
+
+[node name="match_code" type="Label" parent="used"]
+margin_left = 120.0
+margin_top = 17.0
+margin_right = 240.0
+margin_bottom = 33.0
+mouse_filter = 1
+size_flags_vertical = 0
+text = "MATCH: E4MAH"
+
+[node name="blue" type="Sprite" parent="used"]
+position = Vector2( 56, 57 )
+scale = Vector2( 6, 6 )
+texture = ExtResource( 5 )
+vframes = 4
+hframes = 6
+
+[node name="red" type="Sprite" parent="used"]
+position = Vector2( 56, 57 )
+scale = Vector2( 6, 6 )
+texture = ExtResource( 5 )
+vframes = 4
+hframes = 6
+frame = 3
+
+[node name="status" type="Label" parent="used"]
+margin_left = 120.0
+margin_top = 57.0
+margin_right = 280.0
+margin_bottom = 73.0
+mouse_filter = 1
+size_flags_vertical = 0
+text = "WAITING FOR JOIN"
+
+[node name="play" type="Button" parent="used"]
+visible = false
+margin_left = 199.0
+margin_top = 80.0
+margin_right = 295.0
+margin_bottom = 112.0
+theme = ExtResource( 2 )
+text = "PLAY"
+script = ExtResource( 3 )
+trans_key = "LABEL_PLAY"
+
+[node name="replay" type="Button" parent="used"]
+visible = false
+margin_left = 102.0
+margin_top = 80.0
+margin_right = 198.0
+margin_bottom = 112.0
+theme = ExtResource( 2 )
+text = "REPLY"
+script = ExtResource( 3 )
+trans_key = "LABEL_REPLY"
+
+[node name="forfeit" type="Button" parent="used"]
+visible = false
+margin_left = 4.0
+margin_top = 80.0
+margin_right = 100.0
+margin_bottom = 112.0
+theme = ExtResource( 2 )
+text = "FORFEIT"
+script = ExtResource( 3 )
+trans_key = "LABEL_FORFEIT"
+
+[node name="clear" type="Button" parent="used"]
+margin_left = 199.0
+margin_top = 80.0
+margin_right = 295.0
+margin_bottom = 112.0
+theme = ExtResource( 2 )
+text = "CLEAR"
+script = ExtResource( 3 )
+trans_key = "LABEL_CLEAR"

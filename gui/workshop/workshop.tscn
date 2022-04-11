@@ -1,0 +1,116 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://scripts/workshop_controller.gd" type="Script" id=1]
+[ext_resource path="res://gui/workshop/toolbox.tscn" type="PackedScene" id=2]
+[ext_resource path="res://gui/workshop/building_blocks.tscn" type="PackedScene" id=3]
+[ext_resource path="res://gui/message.tscn" type="PackedScene" id=4]
+[ext_resource path="res://gui/workshop/file_panel.tscn" type="PackedScene" id=5]
+[ext_resource path="res://gui/workshop/navigation_panel.tscn" type="PackedScene" id=6]
+[ext_resource path="res://maps/workshop.tscn" type="PackedScene" id=7]
+
+[node name="workshop" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"__editor_plugin_screen__": "2D",
+"_edit_use_anchors_": false
+}
+
+[node name="blueprint" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="center" type="Control" parent="blueprint"]
+margin_left = 640.0
+margin_top = 360.0
+margin_right = 640.0
+margin_bottom = 360.0
+
+[node name="toolbox_panel" type="CenterContainer" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="center" type="Control" parent="toolbox_panel"]
+margin_left = 640.0
+margin_top = 360.0
+margin_right = 640.0
+margin_bottom = 360.0
+
+[node name="toolbox" parent="toolbox_panel/center" instance=ExtResource( 2 )]
+margin_top = -24.0
+margin_bottom = -24.0
+
+[node name="building_blocks_panel" type="CenterContainer" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="center" type="Control" parent="building_blocks_panel"]
+margin_left = 640.0
+margin_top = 360.0
+margin_right = 640.0
+margin_bottom = 360.0
+
+[node name="building_blocks" parent="building_blocks_panel/center" instance=ExtResource( 3 )]
+margin_top = -24.0
+margin_bottom = -24.0
+
+[node name="message" type="CenterContainer" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="center" type="Control" parent="message"]
+margin_left = 640.0
+margin_top = 360.0
+margin_right = 640.0
+margin_bottom = 360.0
+
+[node name="message" parent="message/center" instance=ExtResource( 4 )]
+
+[node name="central_container" type="CenterContainer" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="file_card" type="CenterContainer" parent="."]
+anchor_right = 1.0
+
+[node name="center" type="Control" parent="file_card"]
+margin_left = 640.0
+margin_right = 640.0
+
+[node name="file_panel" parent="file_card/center" instance=ExtResource( 5 )]
+
+[node name="navigation_panel" type="CenterContainer" parent="."]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="center" type="Control" parent="navigation_panel"]
+margin_left = 640.0
+margin_right = 640.0
+
+[node name="navigation_panel" parent="navigation_panel/center" instance=ExtResource( 6 )]
+
+[node name="viewport" type="CanvasLayer" parent="."]
+layer = -1
+follow_viewport_enable = true
+
+[node name="camera" type="Camera2D" parent="viewport"]
+visible = false
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+
+[node name="scale" type="Node2D" parent="viewport/camera"]
+
+[node name="map" parent="viewport/camera/scale" instance=ExtResource( 7 )]
+margin_left = -7.0
+margin_top = -6.0
+margin_right = 33.0
+margin_bottom = 34.0

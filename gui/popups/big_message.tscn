@@ -1,0 +1,180 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://gui/default_theme.tres" type="Theme" id=1]
+[ext_resource path="res://assets/gui/dialogs/menu9@2x.png" type="Texture" id=2]
+[ext_resource path="res://assets/gui/dialogs/menu9_dark@2x.png" type="Texture" id=3]
+[ext_resource path="res://gui/button_normal_theme.tres" type="Theme" id=4]
+[ext_resource path="res://scripts/translate_me_button.gd" type="Script" id=5]
+[ext_resource path="res://assets/gui/buttons/analog_size3_0.png" type="Texture" id=6]
+[ext_resource path="res://assets/gui/buttons/analog_size3_1.png" type="Texture" id=7]
+[ext_resource path="res://assets/gui/buttons/analog_size3_2.png" type="Texture" id=8]
+[ext_resource path="res://assets/gui/buttons/analog_size3_3.png" type="Texture" id=9]
+[ext_resource path="res://assets/gui/buttons/analog_size3_4.png" type="Texture" id=10]
+[ext_resource path="res://gui/font_22.tres" type="Theme" id=11]
+
+[node name="online" type="CenterContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+__meta__ = {
+"__editor_plugin_screen__": "2D",
+"_edit_lock_": true
+}
+
+[node name="controls" type="Control" parent="."]
+margin_left = 640.0
+margin_top = 360.0
+margin_right = 640.0
+margin_bottom = 360.0
+
+[node name="background" type="NinePatchRect" parent="controls"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -320.0
+margin_top = -208.0
+margin_right = 320.0
+margin_bottom = 142.0
+rect_min_size = Vector2( 640, 350 )
+mouse_filter = 1
+texture = ExtResource( 2 )
+patch_margin_left = 24
+patch_margin_top = 24
+patch_margin_right = 24
+patch_margin_bottom = 24
+
+[node name="background2" type="NinePatchRect" parent="controls"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -320.0
+margin_top = 152.0
+margin_right = -160.0
+margin_bottom = 216.0
+mouse_filter = 1
+texture = ExtResource( 3 )
+patch_margin_left = 24
+patch_margin_top = 24
+patch_margin_right = 24
+patch_margin_bottom = 24
+
+[node name="background3" type="NinePatchRect" parent="controls"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -56.0
+margin_top = 152.0
+margin_right = 320.0
+margin_bottom = 216.0
+mouse_filter = 1
+texture = ExtResource( 3 )
+patch_margin_left = 24
+patch_margin_top = 24
+patch_margin_right = 24
+patch_margin_bottom = 24
+
+[node name="buttons" type="Control" parent="controls"]
+margin_top = -32.0
+margin_bottom = -32.0
+
+[node name="back" type="Button" parent="controls/buttons"]
+margin_left = -312.0
+margin_top = 192.0
+margin_right = -168.0
+margin_bottom = 240.0
+theme = ExtResource( 4 )
+text = "< BACK"
+script = ExtResource( 5 )
+trans_key = "LABEL_BACK"
+
+[node name="previous" type="TextureButton" parent="controls/buttons"]
+visible = false
+margin_left = -48.0
+margin_top = 192.0
+margin_right = 96.0
+margin_bottom = 240.0
+texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 7 )
+texture_hover = ExtResource( 8 )
+texture_disabled = ExtResource( 9 )
+texture_focused = ExtResource( 10 )
+expand = true
+
+[node name="Label" type="Label" parent="controls/buttons/previous"]
+margin_left = 6.0
+margin_top = 16.0
+margin_right = 136.0
+margin_bottom = 34.0
+mouse_filter = 1
+size_flags_vertical = 0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "previous"
+align = 1
+uppercase = true
+
+[node name="next" type="TextureButton" parent="controls/buttons"]
+visible = false
+margin_left = 168.0
+margin_top = 192.0
+margin_right = 312.0
+margin_bottom = 240.0
+texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 7 )
+texture_hover = ExtResource( 8 )
+texture_disabled = ExtResource( 9 )
+texture_focused = ExtResource( 10 )
+expand = true
+
+[node name="Label" type="Label" parent="controls/buttons/next"]
+margin_left = 6.0
+margin_top = 17.0
+margin_right = 136.0
+margin_bottom = 35.0
+mouse_filter = 1
+size_flags_vertical = 0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "next"
+align = 1
+uppercase = true
+
+[node name="title" type="Label" parent="controls"]
+margin_left = -296.0
+margin_top = -192.0
+margin_right = 296.0
+margin_bottom = -172.0
+mouse_filter = 1
+size_flags_vertical = 0
+theme = ExtResource( 11 )
+text = "ONLINE HELP"
+align = 1
+autowrap = true
+
+[node name="message" type="Label" parent="controls"]
+margin_left = -304.0
+margin_top = -160.0
+margin_right = 304.0
+margin_bottom = 120.0
+mouse_filter = 1
+size_flags_vertical = 0
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas erat est, mollis venenatis dapibus et, tincidunt non elit. 
+
+Morbi ut dui faucibus, commodo nisi ut, porta augue. Aliquam imperdiet gravida quam aliquam scelerisque. Maecenas ut lorem turpis. Morbi a imperdiet dolor. Nam in vulputate massa. Proin viverra, metus sit amet facilisis euismod, sapien est ultrices sem, vitae convallis enim quam eget ipsum. Nulla congue ut risus lobortis dignissim. "
+autowrap = true
+uppercase = true
+
+[node name="online_help_text1" type="Label" parent="controls"]
+visible = false
+margin_left = 112.0
+margin_top = 176.0
+margin_right = 152.0
+margin_bottom = 192.0
+mouse_filter = 1
+size_flags_vertical = 0
+text = "1/3"
+align = 1
+autowrap = true
+uppercase = true

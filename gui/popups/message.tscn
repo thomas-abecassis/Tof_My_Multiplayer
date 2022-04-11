@@ -1,0 +1,157 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://assets/gui/dialogs/gui_spritesheet.png" type="Texture" id=1]
+[ext_resource path="res://assets/gui/buttons/analog_size3_0.png" type="Texture" id=2]
+[ext_resource path="res://assets/gui/buttons/analog_size3_1.png" type="Texture" id=3]
+[ext_resource path="res://assets/gui/buttons/analog_size3_2.png" type="Texture" id=4]
+[ext_resource path="res://assets/gui/buttons/analog_size3_3.png" type="Texture" id=5]
+[ext_resource path="res://assets/gui/buttons/analog_size3_7.png" type="Texture" id=6]
+[ext_resource path="res://assets/gui/buttons/gamepad-buttons.png" type="Texture" id=7]
+[ext_resource path="res://gui/font_22.tres" type="Theme" id=8]
+
+[node name="message" type="Control"]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"__editor_plugin_screen__": "2D"
+}
+
+[node name="background" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Sprite" type="Sprite" parent="background"]
+position = Vector2( 0, -48 )
+scale = Vector2( 10, 3 )
+texture = ExtResource( 1 )
+vframes = 8
+hframes = 8
+frame = 4
+
+[node name="Sprite1" type="Sprite" parent="background"]
+position = Vector2( 206, -48 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 1 )
+vframes = 8
+hframes = 8
+frame = 5
+
+[node name="Sprite2" type="Sprite" parent="background"]
+position = Vector2( -206, -48 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 1 )
+vframes = 8
+hframes = 8
+frame = 3
+
+[node name="Sprite3" type="Sprite" parent="background"]
+position = Vector2( 0, 68 )
+scale = Vector2( 10, 3 )
+texture = ExtResource( 1 )
+vframes = 8
+hframes = 8
+frame = 20
+
+[node name="Sprite4" type="Sprite" parent="background"]
+position = Vector2( -206, 2.00001 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 1 )
+vframes = 8
+hframes = 8
+frame = 11
+
+[node name="Sprite4 2" type="Sprite" parent="background"]
+position = Vector2( 206, 2.00001 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 1 )
+vframes = 8
+hframes = 8
+frame = 13
+
+[node name="Sprite4 3" type="Sprite" parent="background"]
+position = Vector2( 0, 2.00001 )
+scale = Vector2( 10, 3 )
+texture = ExtResource( 1 )
+vframes = 8
+hframes = 8
+frame = 12
+
+[node name="Sprite3 3" type="Sprite" parent="background"]
+position = Vector2( 206, 68 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 1 )
+vframes = 8
+hframes = 8
+frame = 21
+
+[node name="Sprite3 2" type="Sprite" parent="background"]
+position = Vector2( -206, 68 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 1 )
+vframes = 8
+hframes = 8
+frame = 19
+
+[node name="confirm" type="TextureButton" parent="."]
+margin_left = 104.0
+margin_top = 60.0
+margin_right = 248.0
+margin_bottom = 108.0
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 3 )
+texture_hover = ExtResource( 4 )
+texture_disabled = ExtResource( 5 )
+texture_focused = ExtResource( 6 )
+expand = true
+
+[node name="Label" type="Label" parent="confirm"]
+margin_left = 4.0
+margin_top = 16.0
+margin_right = 134.0
+margin_bottom = 31.0
+mouse_filter = 1
+size_flags_vertical = 0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "CONFIRM"
+align = 1
+
+[node name="Sprite" type="Sprite" parent="confirm"]
+visible = false
+position = Vector2( 3.60998, 4.5125 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 7 )
+vframes = 2
+hframes = 4
+frame = 2
+
+[node name="title" type="Label" parent="."]
+margin_left = -240.0
+margin_top = -82.0
+margin_right = 48.0
+margin_bottom = -59.0
+mouse_filter = 1
+size_flags_vertical = 0
+theme = ExtResource( 8 )
+text = "DID YOU KNOW THAT<..."
+
+[node name="message" type="Label" parent="."]
+margin_left = -240.0
+margin_top = -48.0
+margin_right = 240.0
+margin_bottom = 52.0
+mouse_filter = 1
+size_flags_vertical = 0
+text = "Did you know?
+
+Little shield icon next to the unit shows that this unit can defend itself if attacked."
+autowrap = true
+
+[node name="important" type="Label" parent="."]
+margin_left = -240.0
+margin_top = 17.0
+margin_right = 48.0
+margin_bottom = 40.0
+mouse_filter = 1
+size_flags_vertical = 0
+theme = ExtResource( 8 )
+text = "IMPORTANT"
